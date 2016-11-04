@@ -1,0 +1,20 @@
+{
+    "name": "clivern/lce",
+    "description": "Export a Large CSV Files with Laravel.",
+    "type": "library",
+    "keywords": ["csv-export", "laravel"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "clivern",
+            "email": "hello@clivern.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "Clivern\\Lce\\": "src/"
+        }
+    }
+}
