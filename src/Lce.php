@@ -2,7 +2,9 @@
 
 namespace Clivern\Lce;
 
-class LCE
+use Symfony\Component\HttpFoundation\StreamedResponse;
+
+class Lce
 {
 
     /**
@@ -123,7 +125,11 @@ class LCE
             $handle = fopen('php://output', 'w');
 
             // Add CSV headers
-            fputcsv($handle, $this->header);
+            if( is_array($this->header) ){
+                foreach ($this->header as $header) {
+                    fputcsv($handle, $header);
+                }
+            }
 
             $this->source->chunk($this->items, function($items) use($handle) {
                 foreach ($items as $item) {

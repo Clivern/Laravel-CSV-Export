@@ -4,7 +4,9 @@ namespace Clivern\Lce;
 
 use Illuminate\Support\ServiceProvider;
 
-class LCEServiceProvider extends ServiceProvider
+use Clivern\Lce\Lce;
+
+class LceServiceProvider extends ServiceProvider
 {
 
     /**
@@ -31,7 +33,10 @@ class LCEServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('LCE', 'Clivern\Lce\LCE');
+        // Bind css parser
+        $this->app['lce'] = $this->app->share(function () {
+            return new Lce();
+        });
     }
 
     /**
@@ -41,6 +46,8 @@ class LCEServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['LCE'];
+        return array(
+            'lce'
+        );
     }
 }
