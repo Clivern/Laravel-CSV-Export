@@ -1,6 +1,6 @@
 # Laravel CSV Export
 
-Export a Large CSV Files with Laravel.
+Export a Large Dataset in CSV Format. It is based on Symfony’s StreamedResponse and Laravel’s chunked queries.
 
 *Current version: [v1.0.0]*
 
@@ -33,7 +33,8 @@ $lce = App::make('lce');
 
 ## Usage
 
-First configure uploader class.
+Lets use it to export options table.
+
 ``` php
 namespace App\Http\Controllers;
 
@@ -68,8 +69,12 @@ class HomeController extends Controller
 
 ## Change log
 ```
-Version 1.0.0
-> Initial Release
+Version 1.0.1:
+> Docs Updated.
+> UTF-8 Support Added.
+
+Version 1.0.0:
+> Initial Release.
 ```
 
 ## Security

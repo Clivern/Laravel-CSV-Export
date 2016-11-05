@@ -123,6 +123,7 @@ class Lce
         $response = new StreamedResponse(function() use($additional_param){
             // Open output stream
             $handle = fopen('php://output', 'w');
+            fputs($handle, "\xEF\xBB\xBF"); # UTF-8 Bom
 
             // Add CSV headers
             if( is_array($this->header) ){
