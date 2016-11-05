@@ -2,7 +2,7 @@
 
 Export a Large Dataset in CSV Format. It is based on Symfony’s StreamedResponse and Laravel’s chunked queries.
 
-*Current version: [v1.0.0]*
+*Current version: [v1.0.2]*
 
 
 ## Installation
@@ -16,16 +16,24 @@ $ composer require clivern/lce
 Then add the ServiceProvider to the providers array in `config/app.php`
 
 ```php
-Clivern\Lce\LceServiceProvider::class,
+'providers' => [
+    // ...
+    Clivern\Lce\LceServiceProvider::class,
+    // ...
+],
 ```
 
 You can use the facade for shorter code. Add this to your aliases:
 
 ```php
-'Lce' => Clivern\Lce\Facades\Lce::class,
+'aliases' => [
+    // ...
+    'Lce' => Clivern\Lce\Facades\Lce::class,
+    // ...
+],
 ```
 
-The class is bound to the ioC as `excel`
+The class is bound to the ioC as `lce`
 
 ```php
 $lce = App::make('lce');
@@ -33,7 +41,7 @@ $lce = App::make('lce');
 
 ## Usage
 
-Lets use it to export options table.
+For Example Let's use it to export options table.
 
 ``` php
 namespace App\Http\Controllers;
@@ -69,6 +77,9 @@ class HomeController extends Controller
 
 ## Change log
 ```
+Version 1.0.2:
+> Docs Updated.
+
 Version 1.0.1:
 > Docs Updated.
 > UTF-8 Support Added.
