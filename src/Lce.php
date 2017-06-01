@@ -134,8 +134,20 @@ class Lce
 
             $this->source->chunk($this->items, function($items) use($handle) {
                 foreach ($items as $item) {
-                    // Add a new row with data
-                    fputcsv($handle, call_user_func($this->callback, $item));
+                    $expo_arr = call_user_func($this->callback, $item);
+
+                    if( isset($expo_arr[0]) && is_array($expo_arr[0]) ){
+                        foreach ($expo_arr as $value) {
+                            if( !empty($value) ){
+                                fputcsv($handle, $value);
+                            }
+                        }
+                    }else{
+                        if( !empty($expo_arr) ){
+                            fputcsv($handle, $expo_arr);
+                        }
+                    }
+
                 }
             });
 
@@ -144,5 +156,43 @@ class Lce
         }, 200, $headers);
 
         return $response->send();
+    }
+
+    /**
+     * Get CSV
+     *
+     * @since 1.0.3
+     * @return string
+     */
+    public function getContent()
+    {
+
+        $data = "";
+        if( is_array($this->header) ){
+            foreach ($this->header as $header) {
+                $data .= implode(',', $header) . "\n";
+            }
+        }
+
+        $this->source->chunk($this->items, function($items) use (&$data) {
+            foreach ($items as $item) {
+                // Add a new row with data
+                $expo_arr = call_user_func($this->callback, $item);
+
+                if( isset($expo_arr[0]) && is_array($expo_arr[0]) ){
+                    foreach ($expo_arr as $value) {
+                        if( !empty($value) ){
+                            $data .= implode(',', $value) . "\n";
+                        }
+                    }
+                }else{
+                    if( !empty($expo_arr) ){
+                        $data .= implode(',', $expo_arr) . "\n";
+                    }
+                }
+            }
+        });
+
+        return $data;
     }
 }

@@ -2,7 +2,7 @@
 
 Export a Large Dataset in CSV Format. It is based on Symfony’s StreamedResponse and Laravel’s chunked queries.
 
-*Current version: [v1.0.2]*
+*Current version: [v1.0.3]*
 
 
 ## Installation
@@ -77,6 +77,10 @@ class HomeController extends Controller
 
 ## Change log
 ```
+Version 1.0.3:
+> New method to get CSV file content.
+> New feature to add two rows in single return.
+
 Version 1.0.2:
 > Docs Updated.
 
