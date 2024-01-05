@@ -2,7 +2,7 @@ repo_name: Clivern/Laravel-CSV-Export
 report_id: c2481fbb1cd0dad003776d0ef662aa2b
 version: 0.1
 repo_type: Public
-timestamp: '2023-12-21T15:22:25+00:00'
+timestamp: '2024-01-05T08:18:18+00:00'
 requested_by: Clivern
 provider: github
 branch: master
@@ -17,6 +17,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/991/hwUcGZ41_400x400.jpg
+  detection_source_url: https://github.com/Clivern/Laravel-CSV-Export
   detection_source: Repo Metadata
 - name: Git
   description: Fast, scalable, distributed revision control system
@@ -26,4 +27,5 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/Clivern/Laravel-CSV-Export
   detection_source: Repo Metadata
